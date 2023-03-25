@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content
+        ="width=device-width, initial-scale=1.0">
+    <title>Dice Game</title>
+
+    <style>
+        .container {
+            width: 70%;
+            margin: auto;
+            text-align: center;
+        }
+
+        .dice {
+            text-align: center;
+            display: inline-block;
+            margin: 10px;
+        }
+
+        body {
+            background-color: #042f4b;
+            margin: 0;
+        }
+
+        h1 {
+            margin: 30px;
+            font-family: "Lobster", cursive;
+            text-shadow: 5px 0 #232931;
+            font-size: 4.5rem;
+            color: #4ecca3;
+            text-align: center;
+        }
+
+        p {
+            font-size: 2rem;
+            color: #4ecca3;
+            font-family: "Indie Flower", cursive;
+        }
+
+        img {
+            width: 200px;
+            height: 200px;
+        }
+
+        .bottom {
+            padding-top: 30px;
+        }
+
+        .butn {
+            background: #4ecca3;
+            font-family: "Indie Flower", cursive;
+            border-radius: 7px;
+            color: #ffff;
+            font-size: 15px;
+            padding: 16px 25px 16px 25px;
+            text-decoration: none;
+        }
+
+        .butn:hover {
+            background: #232931;
+            text-decoration: none;
+        }
+        .btn{
+            background-color: red;
+            font-family: "Indie Flower", cursive;
+            border-radius: 7px;
+            color: #ffff;
+            margin-top: 20px;
+            font-size: 15px;
+            padding: 16px 140px;
+            text-decoration: none;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Let's Play</h1>
+
+        <div class="dice">
+            <p class="Player1">Player 1</p>
+            <img class="img1" src="dice6.png">
+        </div>
+
+        <div class="dice">
+            <p class="Player2">Player 2</p>
+            <img class="img2" src="dice6.png">
+        </div>
+    </div>
+
+    <div class="container bottom">
+        <button type="button" class="butn"
+            onClick="rollTheDice1()">
+           Player1 Roll the Dice
+        </button>
+
+        <button type="button" class="butn"
+        onClick="rollTheDice2()">
+        Player2 Roll the Dice
+    </button>
+
+    <div>
+        <button type="button" class="btn"
+        onClick="result()">
+        Show the result
+    </button>
+    </div>
+    </div>
+
+
+
+    <script>
+
+        // Player name
+        var player1 = "Player 1";
+        var player2 = "Player 2";
+let  randomNumber2 ;
+let  randomNumber1 ;
+        // Function to roll the dice
+        function rollTheDice1() {
+            setTimeout(function () {
+             randomNumber1 = Math.floor(Math.random() * 6) + 1;
+                console.log(randomNumber1)
+                document.querySelector(".img1").setAttribute("src",
+                    "dice" + randomNumber1 + ".png");
+
+
+
+            }, 1000);
+        }
+
+        let rollTheDice2=()=>{
+
+            setTimeout(function () {
+
+                randomNumber2 = Math.floor(Math.random() * 6) + 1;
+                console.log(randomNumber2)
+             document.querySelector(".img2").setAttribute("src",
+                    "dice" + randomNumber2 + ".png");
+
+
+            }, 1000);
+
+
+        }
+
+
+        let result=()=>{
+            console.log(randomNumber1+randomNumber2)
+            if (randomNumber1 === randomNumber2) {
+
+                    document.querySelector("h1").innerHTML = "Draw!";
+                    return false
+                }
+
+                else if (randomNumber1 < randomNumber2) {
+                    document.querySelector("h1").innerHTML
+                        ="Player2 WINS!";
+                        return false
+                }
+
+                else {
+                    document.querySelector("h1").innerHTML
+                        = "Player1 WINS!";
+                }
+        }
+    </script>
+</body>
+
+</html>
